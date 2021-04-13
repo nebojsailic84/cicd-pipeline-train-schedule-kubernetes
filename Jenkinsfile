@@ -47,6 +47,7 @@ pipeline {
                 milestone(1)
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
+                    dockerCredentials: [[credentialsId: 'docker_hub_login']],
                     configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
                 )
